@@ -59,12 +59,11 @@ export default async function Home() {
           Free Forever — No Signup
         </div>
         <h1>
-          The Toolkit for<br />
-          <em>Modern Creators</em>
+          Free Online Tools<br />
+          <em>for Images and AI </em>
         </h1>
         <p className="hero-sub">
-          Generate AI prompts, compress and convert images, generate AI captions, create QR codes,
-          and convert text to speech — all in one place, completely free.
+          Free online tools to generate AI prompts, compress images, convert formats, create QR codes, and convert text to speech
         </p>
         <div className="hero-actions">
           <Link href="#tools" className="btn-primary">
