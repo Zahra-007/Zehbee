@@ -21,8 +21,12 @@ export type BlogPreview = {
 
 const STATIC_BLOG_PREVIEWS: BlogPreview[] = [
     {
-        title: "How to Remove a Watermark from an Image Without Blur",
-        href: "/blog/remove-watermark-without-blur",
+        title: "How to Write the Perfect Midjourney Prompt in 2025",
+        href: "/blog/write-perfect-midjourney-prompt",
+    },
+    {
+        title: "How to Compress Images for the Web Without Losing Quality",
+        href: "/blog/compress-images-without-losing-quality",
     },
     {
         title: "Best Free Image Converters Online in 2025",
