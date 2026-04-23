@@ -49,7 +49,7 @@ const howToSteps = [
     },
 ];
 
-const relatedTools = tools.filter((t) => t.href !== "/text-to-speech").slice(0, 4);
+const relatedTools = tools.filter((t) => t.href !== "/text-to-speech");
 
 export default function TextToSpeechPage() {
     return (

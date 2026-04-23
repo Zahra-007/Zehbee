@@ -46,7 +46,7 @@ const howToSteps = [
 ];
 
 // Related tools = all tools except this one
-const relatedTools = tools.filter((t) => t.href !== "/ai-image-compressor").slice(0, 4);
+const relatedTools = tools.filter((t) => t.href !== "/ai-image-compressor");
 
 export default function AiImageCompressorPage() {
     return (

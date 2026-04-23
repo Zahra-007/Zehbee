@@ -483,7 +483,8 @@ h1, h2, h3, h4, h5, h6 {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  flex: 1 1 300px;
+  flex: 1 1 calc(33.333% - 1.5rem);
+  min-width: 300px;
   max-width: 450px;
   display: flex;
 }
@@ -966,8 +967,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .related-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.5rem;
   list-style: none;
   padding: 0;
@@ -976,9 +978,15 @@ h1, h2, h3, h4, h5, h6 {
 
 .related-grid > li {
   list-style-type: none;
+  flex: 1 1 calc(33.333% - 1.5rem);
+  min-width: 300px;
+  max-width: 450px;
+  display: flex;
 }
 
 .related-card {
+  width: 100%;
+  height: 100%;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);

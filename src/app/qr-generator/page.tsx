@@ -49,7 +49,7 @@ const howToSteps = [
     },
 ];
 
-const relatedTools = tools.filter((t) => t.href !== "/qr-generator").slice(0, 4);
+const relatedTools = tools.filter((t) => t.href !== "/qr-generator");
 
 export default function QrGeneratorPage() {
     return (

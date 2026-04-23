@@ -49,7 +49,7 @@ const howToSteps = [
     },
 ];
 
-const relatedTools = tools.filter((t) => t.href !== "/image-converter").slice(0, 4);
+const relatedTools = tools.filter((t) => t.href !== "/image-converter");
 
 export default function ImageConverterPage() {
     return (

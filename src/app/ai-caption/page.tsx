@@ -49,7 +49,7 @@ const howToSteps = [
     },
 ];
 
-const relatedTools = tools.filter((t) => t.href !== "/ai-caption").slice(0, 4);
+const relatedTools = tools.filter((t) => t.href !== "/ai-caption");
 
 export default function AiCaptionPage() {
     return (
