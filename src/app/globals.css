@@ -1042,24 +1042,77 @@ h1, h2, h3, h4, h5, h6 {
   .header-nav {
     display: none;
   }
+  .section {
+    padding: 4.5rem 0;
+  }
 }
 
 @media (max-width: 640px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
   .hero {
-    padding-top: 3rem;
-    padding-bottom: 4rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+  .section {
+    padding: 4rem 0;
+  }
+  .section-header {
+    margin-bottom: 2rem;
   }
   .trust-bar {
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 2rem;
   }
   .footer-links-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .how-step {
+    padding: 1.5rem;
+    gap: 1.25rem;
+  }
+  .how-step-num {
+    font-size: 1.5rem;
+  }
+  .tool-card {
+    padding: 2rem;
+  }
+  .tools-grid > li, .related-grid > li {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .seo-stats {
+    grid-template-columns: 1fr;
+  }
+  .tool-ui-box {
+    padding: 2rem 1.5rem;
+    min-height: 250px;
+  }
+  .tool-ui-section {
+    padding: 3rem 0;
+  }
+  .tool-page-trust {
     flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
   }
+  .faq-item {
+    padding: 1.5rem;
+  }
 }
+
