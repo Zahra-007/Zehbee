@@ -3,13 +3,13 @@ import Link from "next/link";
 import { tools } from "@/lib/data";
 
 export const metadata: Metadata = {
-    title: "Free Watermark Remover Online — No Signup | Zehbee",
-    description: "Remove watermarks from any image instantly and for free. No account needed, works directly in your browser. Clean results in seconds.",
-    alternates: { canonical: "https://zehbee.com/watermark-remover" },
+    title: "Free AI Image Compressor Online — No Signup | Zehbee",
+    description: "Smartly compress your images while keeping high quality using AI algorithms. Free, no account needed, browser-based.",
+    alternates: { canonical: "https://zehbee.com/ai-image-compressor" },
     openGraph: {
-        title: "Free Watermark Remover — Zehbee",
-        description: "Remove watermarks from images instantly. Free, no signup, browser-based.",
-        url: "https://zehbee.com/watermark-remover",
+        title: "Free AI Image Compressor — Zehbee",
+        description: "Compress images with AI without losing quality. Free, no signup, browser-based.",
+        url: "https://zehbee.com/ai-image-compressor",
         siteName: "Zehbee",
         type: "website",
     },
@@ -17,42 +17,38 @@ export const metadata: Metadata = {
 
 const faqs = [
     {
-        q: "Is this watermark remover really free?",
-        a: "Yes — 100% free, no hidden fees, no account required. You can use it as many times as you want.",
+        q: "Is this AI image compressor really free?",
+        a: "Yes — 100% free, no hidden fees, no account required. Compress as many images as you want.",
     },
     {
-        q: "What image formats does it support?",
-        a: "The tool supports JPG, PNG, WEBP, and most common image formats. Simply upload your image and the watermark will be removed.",
+        q: "What makes it an 'AI' compressor?",
+        a: "Our tool uses smart algorithms to analyze the image and strategically reduce data where the human eye won't notice, maintaining high perceived quality at much smaller file sizes.",
     },
     {
-        q: "Will the image quality be affected?",
-        a: "No. The tool is designed to preserve the original image quality while removing the watermark cleanly.",
-    },
-    {
-        q: "Are my images stored on your servers?",
-        a: "No. All processing happens directly in your browser. Your images are never uploaded to or stored on any server.",
+        q: "Are my images safe?",
+        a: "Absolutely. All processing happens locally. Your images are never stored on any server.",
     },
 ];
 
 const howToSteps = [
     {
         title: "Upload your image",
-        desc: "Click the upload area or drag and drop your image file. Supports JPG, PNG, WEBP and more.",
+        desc: "Click the upload area or drag and drop your image file. We support JPG, PNG, and WEBP.",
     },
     {
-        title: "Select the watermark area",
-        desc: "Use the selection tool to highlight the watermark you want removed from your image.",
+        title: "Select compression level",
+        desc: "Choose your desired balance between file size reduction and image quality.",
     },
     {
-        title: "Remove & download",
-        desc: "Click Remove Watermark and download your clean image instantly — no waiting, no signup.",
+        title: "Compress & download",
+        desc: "Click Compress and download your optimized image instantly. Compare before and after results.",
     },
 ];
 
 // Related tools = all tools except this one
-const relatedTools = tools.filter((t) => t.href !== "/watermark-remover").slice(0, 4);
+const relatedTools = tools.filter((t) => t.href !== "/ai-image-compressor").slice(0, 4);
 
-export default function WatermarkRemoverPage() {
+export default function AiImageCompressorPage() {
     return (
         <>
 
@@ -66,13 +62,12 @@ export default function WatermarkRemoverPage() {
                         </svg>
                         Back to all tools
                     </Link>
-                    <h1 className="tool-page-title">Watermark Remover</h1>
+                    <h1 className="tool-page-title">AI Image Compressor</h1>
                     <p className="tool-page-desc">
-                        Remove watermarks from any image instantly — free, no account required, and
-                        your files never leave your browser.
+                        Smartly compress your images while keeping high quality using AI algorithms — completely free.
                     </p>
                     <div className="tool-page-trust">
-                        {["Free forever", "No signup needed", "Browser-based", "No file uploads"].map((t) => (
+                        {["Free forever", "No signup needed", "Smart compression", "Browser-based"].map((t) => (
                             <div className="tool-trust-item" key={t}>
                                 <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -96,9 +91,9 @@ export default function WatermarkRemoverPage() {
                         {/* ── REPLACE THIS with your actual tool component ── */}
                         <div className="tool-ui-placeholder">
                             <svg width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15" />
                             </svg>
-                            <p>Drag & drop your image here, or click to upload</p>
+                            <p>Drag & drop your image to compress</p>
                         </div>
                         {/* ──────────────────────────────────────────────── */}
                     </div>
@@ -111,23 +106,20 @@ export default function WatermarkRemoverPage() {
                     <div className="section">
                         <div className="section-header">
                             <span className="section-label">About This Tool</span>
-                            <h2 className="section-title">What is a Watermark Remover?</h2>
+                            <h2 className="section-title">What is an AI Image Compressor?</h2>
                         </div>
-                        <div className="seo-body" style={{ maxWidth: 720 }}>
+                        <div className="seo-body">
                             <p>
-                                A watermark remover is a tool that lets you cleanly erase watermarks, logos,
-                                or text overlays from images without affecting the rest of the photo. This is
-                                useful when you have licensed images you own, screenshots, or photos where the
-                                watermark is distracting or unnecessary.
+                                Large image files slow down websites, take up too much storage space, and are hard to share. 
+                                Our AI Image Compressor intelligently reduces the file size of your images without making them look pixelated or blurry.
                             </p>
                             <p>
-                                Zehbee&apos;s Watermark Remover works entirely in your browser using smart inpainting
-                                technology. The surrounding pixels are analyzed and the watermark region is filled
-                                in intelligently — giving you a clean, natural-looking result.
+                                Zehbee uses smart compression algorithms that identify and remove unnecessary data from your images 
+                                while preserving the details that matter most to the human eye. This means you get a much smaller file 
+                                with virtually no noticeable difference in quality.
                             </p>
                             <p>
-                                Unlike desktop software, there&apos;s nothing to install. Just open this page, upload
-                                your image, select the watermark area, and download your clean result in seconds.
+                                Everything is processed securely in your browser. Just upload your image, and let the tool do the rest.
                             </p>
                         </div>
                     </div>
@@ -140,7 +132,7 @@ export default function WatermarkRemoverPage() {
                     <div className="section">
                         <div className="section-header">
                             <span className="section-label">Guide</span>
-                            <h2 className="section-title">How to remove a watermark</h2>
+                            <h2 className="section-title">How to compress an image</h2>
                         </div>
                         <ol className="how-steps">
                             {howToSteps.map((step, i) => (

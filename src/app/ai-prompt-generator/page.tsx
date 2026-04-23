@@ -3,13 +3,13 @@ import Link from "next/link";
 import { tools } from "@/lib/data";
 
 export const metadata: Metadata = {
-    title: "Free Watermark Remover Online — No Signup | Zehbee",
-    description: "Remove watermarks from any image instantly and for free. No account needed, works directly in your browser. Clean results in seconds.",
-    alternates: { canonical: "https://zehbee.com/watermark-remover" },
+    title: "Free AI Prompt Generator Online — No Signup | Zehbee",
+    description: "Generate highly optimized prompts for Midjourney, ChatGPT, and more. Free, no account needed, instant results.",
+    alternates: { canonical: "https://zehbee.com/ai-prompt-generator" },
     openGraph: {
-        title: "Free Watermark Remover — Zehbee",
-        description: "Remove watermarks from images instantly. Free, no signup, browser-based.",
-        url: "https://zehbee.com/watermark-remover",
+        title: "Free AI Prompt Generator — Zehbee",
+        description: "Generate optimized prompts instantly. Free, no signup, browser-based.",
+        url: "https://zehbee.com/ai-prompt-generator",
         siteName: "Zehbee",
         type: "website",
     },
@@ -17,42 +17,38 @@ export const metadata: Metadata = {
 
 const faqs = [
     {
-        q: "Is this watermark remover really free?",
+        q: "Is this AI prompt generator free?",
         a: "Yes — 100% free, no hidden fees, no account required. You can use it as many times as you want.",
     },
     {
-        q: "What image formats does it support?",
-        a: "The tool supports JPG, PNG, WEBP, and most common image formats. Simply upload your image and the watermark will be removed.",
+        q: "What AI models is this for?",
+        a: "The tool generates optimized prompts for image models like Midjourney and DALL-E, as well as text models like ChatGPT and Claude.",
     },
     {
-        q: "Will the image quality be affected?",
-        a: "No. The tool is designed to preserve the original image quality while removing the watermark cleanly.",
-    },
-    {
-        q: "Are my images stored on your servers?",
-        a: "No. All processing happens directly in your browser. Your images are never uploaded to or stored on any server.",
+        q: "Are my prompts saved?",
+        a: "No. All generation happens locally or without saving history. Your ideas remain completely private.",
     },
 ];
 
 const howToSteps = [
     {
-        title: "Upload your image",
-        desc: "Click the upload area or drag and drop your image file. Supports JPG, PNG, WEBP and more.",
+        title: "Select your AI model",
+        desc: "Choose whether you are generating a prompt for an image generator (like Midjourney) or a text assistant (like ChatGPT).",
     },
     {
-        title: "Select the watermark area",
-        desc: "Use the selection tool to highlight the watermark you want removed from your image.",
+        title: "Enter your core idea",
+        desc: "Type a few words describing what you want to create or achieve.",
     },
     {
-        title: "Remove & download",
-        desc: "Click Remove Watermark and download your clean image instantly — no waiting, no signup.",
+        title: "Generate & copy",
+        desc: "Click generate to instantly receive a detailed, highly optimized prompt. Copy it with one click.",
     },
 ];
 
 // Related tools = all tools except this one
-const relatedTools = tools.filter((t) => t.href !== "/watermark-remover").slice(0, 4);
+const relatedTools = tools.filter((t) => t.href !== "/ai-prompt-generator").slice(0, 4);
 
-export default function WatermarkRemoverPage() {
+export default function AiPromptGeneratorPage() {
     return (
         <>
 
@@ -66,13 +62,12 @@ export default function WatermarkRemoverPage() {
                         </svg>
                         Back to all tools
                     </Link>
-                    <h1 className="tool-page-title">Watermark Remover</h1>
+                    <h1 className="tool-page-title">AI Prompt Generator</h1>
                     <p className="tool-page-desc">
-                        Remove watermarks from any image instantly — free, no account required, and
-                        your files never leave your browser.
+                        Generate highly optimized prompts for Midjourney, ChatGPT, and more — free, no account required.
                     </p>
                     <div className="tool-page-trust">
-                        {["Free forever", "No signup needed", "Browser-based", "No file uploads"].map((t) => (
+                        {["Free forever", "No signup needed", "Optimized output", "Instant generation"].map((t) => (
                             <div className="tool-trust-item" key={t}>
                                 <svg width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -96,9 +91,9 @@ export default function WatermarkRemoverPage() {
                         {/* ── REPLACE THIS with your actual tool component ── */}
                         <div className="tool-ui-placeholder">
                             <svg width="48" height="48" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.82 1.508-2.316a7.5 7.5 0 10-7.516 0c.85.496 1.508 1.333 1.508 2.316V18" />
                             </svg>
-                            <p>Drag & drop your image here, or click to upload</p>
+                            <p>Enter your idea to generate a prompt</p>
                         </div>
                         {/* ──────────────────────────────────────────────── */}
                     </div>
@@ -111,23 +106,21 @@ export default function WatermarkRemoverPage() {
                     <div className="section">
                         <div className="section-header">
                             <span className="section-label">About This Tool</span>
-                            <h2 className="section-title">What is a Watermark Remover?</h2>
+                            <h2 className="section-title">What is an AI Prompt Generator?</h2>
                         </div>
-                        <div className="seo-body" style={{ maxWidth: 720 }}>
+                        <div className="seo-body">
                             <p>
-                                A watermark remover is a tool that lets you cleanly erase watermarks, logos,
-                                or text overlays from images without affecting the rest of the photo. This is
-                                useful when you have licensed images you own, screenshots, or photos where the
-                                watermark is distracting or unnecessary.
+                                Writing the perfect prompt for AI models like Midjourney or ChatGPT can be difficult. 
+                                Our AI Prompt Generator takes your basic idea and expands it into a highly detailed, 
+                                optimized prompt that guarantees better results from the AI.
                             </p>
                             <p>
-                                Zehbee&apos;s Watermark Remover works entirely in your browser using smart inpainting
-                                technology. The surrounding pixels are analyzed and the watermark region is filled
-                                in intelligently — giving you a clean, natural-looking result.
+                                Whether you are an artist looking for specific lighting and camera angles in Midjourney, 
+                                or a writer needing a structured persona for ChatGPT, this tool does the heavy lifting for you.
                             </p>
                             <p>
-                                Unlike desktop software, there&apos;s nothing to install. Just open this page, upload
-                                your image, select the watermark area, and download your clean result in seconds.
+                                Simply type in your core concept, and instantly receive a professional-grade prompt ready 
+                                to be copied and pasted.
                             </p>
                         </div>
                     </div>
@@ -140,7 +133,7 @@ export default function WatermarkRemoverPage() {
                     <div className="section">
                         <div className="section-header">
                             <span className="section-label">Guide</span>
-                            <h2 className="section-title">How to remove a watermark</h2>
+                            <h2 className="section-title">How to generate an AI prompt</h2>
                         </div>
                         <ol className="how-steps">
                             {howToSteps.map((step, i) => (

@@ -29,7 +29,8 @@ export default function Footer() {
           <div className="footer-links-grid">
             <div className="footer-column">
               <h4>Tools</h4>
-              <Link href="/watermark-remover">Watermark Remover</Link>
+              <Link href="/ai-prompt-generator">AI Prompt Generator</Link>
+              <Link href="/ai-image-compressor">AI Image Compressor</Link>
               <Link href="/image-converter">Image Converter</Link>
               <Link href="/ai-caption">AI Caption Generator</Link>
               <Link href="/qr-generator">QR Code Generator</Link>
