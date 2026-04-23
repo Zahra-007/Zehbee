@@ -817,7 +817,31 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--text);
-  margin-bottom: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none; /* Hide default triangle */
+}
+
+/* Hide WebKit details marker */
+.faq-q::-webkit-details-marker {
+  display: none;
+}
+
+details[open] .faq-q {
+  margin-bottom: 1rem;
+}
+
+.faq-q svg {
+  transition: transform 0.3s ease;
+  color: var(--text-3);
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+details[open] .faq-q svg {
+  transform: rotate(180deg);
 }
 
 .faq-a {
