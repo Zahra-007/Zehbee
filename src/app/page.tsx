@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: "free online tools, ai prompt generator, image converter, ai image compressor, ai caption generator, qr code generator, text to speech",
   alternates: { canonical: "https://zehbee.com" },
   openGraph: {
-    title: "Zehbee — Free Online Tools",
+    title: "Zehbee-Free Online Tools",
     description: "Free tools for images, AI prompts, QR codes, and text to speech.",
     url: "https://zehbee.com",
     siteName: "Zehbee",
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Zehbee — Free Online Tools",
+    title: "Zehbee-Free Online Tools",
     description: "All-in-one free tools for creators and marketers",
   },
 };
@@ -56,14 +56,14 @@ export default async function Home() {
       <header className="hero">
         <div className="hero-badge">
           <span className="hero-badge-dot" />
-          Free Forever — No Signup
+          No Signup • 100% Free
         </div>
         <h1>
-          Free Online Tools<br />
-          <em>for Images and AI </em>
+          Free AI &amp; Image Tools<br />
+          <em>for Creators and Professionals</em>
         </h1>
         <p className="hero-sub">
-          Free online tools to generate AI prompts, compress images, convert formats, create QR codes, and convert text to speech
+          A comprehensive suite of browser-based utilities to generate AI prompts, compress images, create QR codes, and more — completely free with no hidden fees.
         </p>
         <div className="hero-actions">
           <Link href="#tools" className="btn-primary">
@@ -81,10 +81,10 @@ export default async function Home() {
       {/* TRUST BAR */}
       <div className="trust-bar">
         {[
-          { label: "Free to use", icon: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
-          { label: "No signup required", icon: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg> },
-          { label: "Runs in your browser", icon: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> },
-          { label: "Fast & secure", icon: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> },
+          { label: "100% Free to use", icon: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> },
+          { label: "No account required", icon: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg> },
+          { label: "Secure browser processing", icon: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> },
+          { label: "Instant downloads", icon: <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg> },
         ].map((t) => (
           <div className="trust-item" key={t.label}>
             {t.icon}
@@ -93,13 +93,13 @@ export default async function Home() {
         ))}
       </div>
 
-      {/* TOOLS */}
+      {/* QUICK TOOLS GRID */}
       <section id="tools" aria-labelledby="tools-heading">
         <div className="container">
           <div className="section">
             <div className="section-header">
-              <span className="section-label">All Tools</span>
-              <h2 id="tools-heading" className="section-title">Everything you need, free forever</h2>
+              <span className="section-label">Quick Access</span>
+              <h2 id="tools-heading" className="section-title">Jump to a tool</h2>
             </div>
             <ul className="tools-grid">
               {tools.map((tool) => (
@@ -123,37 +123,92 @@ export default async function Home() {
                   </Link>
                 </li>
               ))}
-
             </ul>
           </div>
         </div>
       </section>
 
-      {/* SEO CONTENT */}
+      {/* OUR SUITE OF FREE TOOLS (SEO EXPANDED) */}
+      <section aria-labelledby="suite-heading" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section" style={{ paddingTop: 0 }}>
+            <div className="section-header">
+              <span className="section-label">Features</span>
+              <h2 id="suite-heading" className="section-title">Our suite of free online tools</h2>
+            </div>
+            <div className="seo-inner" style={{ marginTop: "2rem", display: "grid", gap: "2rem", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
+              <div className="seo-body">
+                <h3 style={{ fontSize: "1.25rem", color: "var(--text-primary)", marginBottom: "0.5rem" }}>AI Prompt Generator</h3>
+                <p>Crafting the perfect prompt is the secret to getting amazing results from AI. Our free prompt generator provides structured, proven frameworks tailored for image generation (like Midjourney) and text models (like ChatGPT). Save time and eliminate guesswork by building highly optimized prompts in seconds.</p>
+              </div>
+              <div className="seo-body">
+                <h3 style={{ fontSize: "1.25rem", color: "var(--text-primary)", marginBottom: "0.5rem" }}>AI Caption Generator</h3>
+                <p>Struggling with what to post? The AI caption generator analyzes your image or context to instantly write engaging, platform-specific captions for Instagram, LinkedIn, and Twitter. Whether you need something professional or casual, generate the perfect copy without the creative block.</p>
+              </div>
+              <div className="seo-body">
+                <h3 style={{ fontSize: "1.25rem", color: "var(--text-primary)", marginBottom: "0.5rem" }}>Image Converter &amp; Compressor</h3>
+                <p>Website performance and social media depend on proper image optimization. Our tools allow you to seamlessly convert between PNG, JPG, and WEBP formats, while the AI Image Compressor smartly reduces file sizes without visible quality loss. All processing is done securely within your browser.</p>
+              </div>
+              <div className="seo-body">
+                <h3 style={{ fontSize: "1.25rem", color: "var(--text-primary)", marginBottom: "0.5rem" }}>QR Code Generator &amp; TTS</h3>
+                <p>Create clean, scannable QR codes for your links or business cards with instant download capabilities. Need audio? Our Text-to-Speech (TTS) converter turns written content into natural-sounding voice audio instantly, providing accessibility and multimedia value for your projects.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section aria-labelledby="how-heading" style={{ paddingTop: 0 }}>
+        <div className="container">
+          <div className="section" style={{ paddingTop: 0 }}>
+            <div className="section-header">
+              <span className="section-label">Workflow</span>
+              <h2 id="how-heading" className="section-title">How Zehbee works</h2>
+            </div>
+            <div className="seo-stats" style={{ marginTop: "2rem" }}>
+              <div className="seo-stat">
+                <div className="seo-stat-num">1</div>
+                <div className="seo-stat-label">Select a Tool</div>
+                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginTop: "0.5rem" }}>Choose from our suite of image and AI utilities without creating an account.</p>
+              </div>
+              <div className="seo-stat">
+                <div className="seo-stat-num">2</div>
+                <div className="seo-stat-label">Process Instantly</div>
+                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginTop: "0.5rem" }}>Upload your file or enter your text. Our tools run efficiently directly in your browser.</p>
+              </div>
+              <div className="seo-stat">
+                <div className="seo-stat-num">3</div>
+                <div className="seo-stat-label">Download &amp; Use</div>
+                <p style={{ fontSize: "0.875rem", color: "var(--text-secondary)", marginTop: "0.5rem" }}>Get your optimized images, AI prompts, or QR codes immediately for free.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US & EDUCATIONAL SEO CONTENT */}
       <div className="seo-section">
         <div className="container">
           <div className="seo-inner">
             <div className="seo-body">
-              <h2 className="seo-title">Built for creators, students &amp; marketers</h2>
+              <h2 className="seo-title">Why choose Zehbee for your workflow?</h2>
               <p>
-                Zehbee is a collection of powerful, free online tools for anyone who works
-                with images, content, or digital media. Whether you&apos;re generating AI prompts,
-                compressing and converting image formats, or generating QR codes — Zehbee has you covered.
+                Zehbee is built for creators, marketers, and developers who need reliable tools without the friction of subscriptions or hidden paywalls. By leveraging local browser processing, we ensure that your images remain completely private—your files never touch our servers.
+              </p>
+              <h3 style={{ marginTop: "2rem", marginBottom: "1rem", fontSize: "1.25rem", color: "var(--text-primary)" }}>Understanding AI and Image Optimization</h3>
+              <p>
+                In today's digital landscape, speed and quality are critical. <strong>Image optimization</strong> improves website load times, which is a key factor in technical SEO and user retention. Using modern formats like WEBP alongside smart compression ensures your site stays fast.
               </p>
               <p>
-                All tools run directly in your browser. No software to install, no account
-                to create, no files stored on a server. Your data stays private.
-              </p>
-              <p>
-                From AI-powered caption generation to instant text-to-speech conversion,
-                Zehbee brings the tools you use most into one clean, fast, free platform.
+                Similarly, <strong>AI tools</strong> are transforming how content is created. From generating structured prompts to writing engaging captions, integrating AI into your daily tasks can drastically reduce the time spent on repetitive creative work, allowing you to focus on strategy and execution.
               </p>
             </div>
             <div className="seo-stats">
               {[
-                { num: "6", label: "Free tools, no limits" },
-                { num: "0", label: "Accounts required" },
-                { num: "100%", label: "Browser-based, no installs" },
+                { num: "100%", label: "Free, forever" },
+                { num: "Zero", label: "Hidden fees or accounts" },
+                { num: "Local", label: "Browser-based privacy" },
               ].map((s) => (
                 <div className="seo-stat" key={s.label}>
                   <div className="seo-stat-num">{s.num}</div>
