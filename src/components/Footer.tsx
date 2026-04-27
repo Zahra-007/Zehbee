@@ -29,12 +29,10 @@ export default function Footer() {
           <div className="footer-links-grid">
             <div className="footer-column">
               <h4>Tools</h4>
-              <Link href="/ai-prompt-generator">AI Prompt Generator</Link>
-              <Link href="/ai-image-compressor">AI Image Compressor</Link>
-              <Link href="/image-converter">Image Converter</Link>
-              <Link href="/ai-caption">AI Caption Generator</Link>
-              <Link href="/qr-generator">QR Code Generator</Link>
-              <Link href="/text-to-speech">Text to Speech</Link>
+              <Link href="/ai-writing-assistant">AI Prompt Generator</Link>
+              <Link href="/rewrite-text-online">Rewrite Text Online</Link>
+              <Link href="/tone-changer-tool">Tone Changer Tool</Link>
+              <Link href="/ai-caption-generator">AI Caption Generator</Link>
             </div>
             <div className="footer-column">
               <h4>Resources</h4>
@@ -44,7 +42,7 @@ export default function Footer() {
             </div>
             <div className="footer-column">
               <h4>Legal</h4>
-              <Link href="/privacy-policy">Privacy Policy</Link>
+              <Link href="/privacy">Privacy Policy</Link>
               <Link href="/terms">Terms of Service</Link>
             </div>
           </div>

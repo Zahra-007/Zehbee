@@ -34,13 +34,13 @@ export default function Header() {
         </Link>
 
         <nav className="header-nav">
-          <Link href="/#tools" className="nav-link">Tools</Link>
+          <Link href="/ai-writing-assistant#tool" className="nav-link">Tools</Link>
           <Link href="/blog" className="nav-link">Blog</Link>
           <Link href="/about" className="nav-link">About</Link>
         </nav>
 
         <div className="header-actions">
-          <Link href="/#tools" className="btn-cta">
+          <Link href="/ai-writing-assistant#tool" className="btn-cta">
             Get Started
           </Link>
         </div>
