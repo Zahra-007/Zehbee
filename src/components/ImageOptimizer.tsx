@@ -7,6 +7,7 @@ type Tab = 'compress' | 'convert' | 'resize';
 export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab?: Tab }) {
     const [activeTab, setActiveTab] = useState<Tab>(defaultTab);
     const [file, setFile] = useState<File | null>(null);
+    const [filePreview, setFilePreview] = useState<string | null>(null);
     const [isDragging, setIsDragging] = useState(false);
     
     // Options state
@@ -19,10 +20,25 @@ export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab
     const [result, setResult] = useState<ProcessResult | null>(null);
     const [isProcessing, setIsProcessing] = useState(false);
 
+    // Premium Fake Processing State
+    const [isSimulating, setIsSimulating] = useState(false);
+    const [progress, setProgress] = useState(0);
+    const [processingStep, setProcessingStep] = useState("");
+    const simulationRef = useRef<NodeJS.Timeout | null>(null);
+    
+    // Use a ref to know if the file has been simulated at least once
+    const hasSimulatedFile = useRef<File | null>(null);
+
     const fileInputRef = useRef<HTMLInputElement>(null);
 
-    // Processing logic
-    const handleProcess = useCallback(async (currentFile: File) => {
+    const getStepText = (p: number) => {
+        if (p < 20) return "Analyzing image...";
+        if (p < 50) return "Compressing image...";
+        if (p < 80) return "Optimizing quality...";
+        return "Finalizing...";
+    };
+
+    const performActualProcessing = useCallback(async (currentFile: File) => {
         setIsProcessing(true);
         try {
             let formatToUse = currentFile.type as 'image/jpeg' | 'image/png' | 'image/webp';
@@ -53,21 +69,76 @@ export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab
         }
     }, [activeTab, quality, targetFormat, width, height, maintainAspectRatio]);
 
-    // Handle file changes
-    useEffect(() => {
-        if (file) {
-            handleProcess(file);
+    const startSimulationAndProcess = (newFile: File) => {
+        if (simulationRef.current) clearInterval(simulationRef.current);
+        
+        setIsSimulating(true);
+        setProgress(0);
+        setProcessingStep("Analyzing image...");
+        setResult(null);
+        hasSimulatedFile.current = newFile;
+        
+        let currentProgress = 0;
+        // Target ~5000ms duration. Updates every 50ms
+        const increment = 100 / (5000 / 50); 
+        
+        simulationRef.current = setInterval(() => {
+            currentProgress += increment;
+            
+            if (currentProgress >= 100) {
+                currentProgress = 100;
+                clearInterval(simulationRef.current!);
+                setProgress(100);
+                setProcessingStep("Finalizing...");
+                
+                // Do actual processing exactly when we hit 100%
+                performActualProcessing(newFile).then(() => {
+                    // Small delay to let user see 100% and "Finalizing..."
+                    setTimeout(() => {
+                        setIsSimulating(false);
+                    }, 500);
+                });
+            } else {
+                setProgress(currentProgress);
+                setProcessingStep(getStepText(currentProgress));
+            }
+        }, 50);
+    };
+
+    const handleCancel = () => {
+        if (simulationRef.current) {
+            clearInterval(simulationRef.current);
+            simulationRef.current = null;
         }
-    }, [file, handleProcess]);
+        setIsSimulating(false);
+        setFile(null);
+        setFilePreview(null);
+        setResult(null);
+        hasSimulatedFile.current = null;
+    };
+
+    const handleFileSelect = (newFile: File) => {
+        setFile(newFile);
+        setFilePreview(URL.createObjectURL(newFile));
+        startSimulationAndProcess(newFile);
+    };
 
     const handleDrop = (e: React.DragEvent) => {
         e.preventDefault();
         setIsDragging(false);
         const droppedFile = e.dataTransfer.files[0];
         if (droppedFile && droppedFile.type.startsWith('image/')) {
-            setFile(droppedFile);
+            handleFileSelect(droppedFile);
         }
     };
+
+    // Fast instant re-processing for option changes AFTER simulation is done
+    useEffect(() => {
+        // Only run instant updates if file exists, we're not simulating, and we've already done the initial simulation
+        if (file && !isSimulating && file === hasSimulatedFile.current) {
+            performActualProcessing(file);
+        }
+    }, [activeTab, quality, targetFormat, width, height, maintainAspectRatio, file, isSimulating, performActualProcessing]);
 
     const handleDownload = () => {
         if (!result || !file) return;
@@ -82,6 +153,13 @@ export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab
         document.body.removeChild(link);
     };
 
+    // Cleanup on unmount
+    useEffect(() => {
+        return () => {
+            if (simulationRef.current) clearInterval(simulationRef.current);
+        };
+    }, []);
+
     return (
         <div className="opt-container">
             {/* Tabs */}
@@ -91,49 +169,52 @@ export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab
                         key={tab}
                         onClick={() => setActiveTab(tab)}
                         className={`opt-tab ${activeTab === tab ? 'active' : ''}`}
+                        disabled={isSimulating}
                     >
                         {tab.charAt(0).toUpperCase() + tab.slice(1)} Image
                     </button>
                 ))}
             </div>
 
-            {/* Upload Area */}
-            <div 
-                className={`opt-dropzone ${isDragging ? 'dragging' : ''}`}
-                onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
-                onDragLeave={() => setIsDragging(false)}
-                onDrop={handleDrop}
-                onClick={() => fileInputRef.current?.click()}
-            >
-                <input 
-                    type="file" 
-                    accept="image/*" 
-                    className="hidden" 
-                    style={{ display: 'none' }}
-                    ref={fileInputRef}
-                    onChange={(e) => {
-                        if (e.target.files && e.target.files[0]) setFile(e.target.files[0]);
-                    }}
-                />
-                <svg className="opt-dropzone-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-                </svg>
-                <h3>Drag & drop your image here</h3>
-                <p>or click to browse from your device</p>
-                <button 
-                    className="btn-primary"
-                    onClick={(e) => {
-                        e.stopPropagation(); // prevent double trigger
-                        fileInputRef.current?.click();
-                    }}
+            {/* Upload Area (Hidden if file exists) */}
+            {!file && (
+                <div 
+                    className={`opt-dropzone ${isDragging ? 'dragging' : ''}`}
+                    onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+                    onDragLeave={() => setIsDragging(false)}
+                    onDrop={handleDrop}
+                    onClick={() => fileInputRef.current?.click()}
                 >
-                    Select Image
-                </button>
-            </div>
+                    <input 
+                        type="file" 
+                        accept="image/*" 
+                        className="hidden" 
+                        style={{ display: 'none' }}
+                        ref={fileInputRef}
+                        onChange={(e) => {
+                            if (e.target.files && e.target.files[0]) handleFileSelect(e.target.files[0]);
+                        }}
+                    />
+                    <svg className="opt-dropzone-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                    </svg>
+                    <h3>Drag & drop your image here</h3>
+                    <p>or click to browse from your device</p>
+                    <button 
+                        className="btn-primary"
+                        onClick={(e) => {
+                            e.stopPropagation(); // prevent double trigger
+                            fileInputRef.current?.click();
+                        }}
+                    >
+                        Select Image
+                    </button>
+                </div>
+            )}
 
-            {/* Controls */}
+            {/* Controls (Disabled during simulation) */}
             {file && (
-                <div className="opt-controls">
+                <div className="opt-controls" style={{ opacity: isSimulating ? 0.5 : 1, pointerEvents: isSimulating ? 'none' : 'auto' }}>
                     
                     {activeTab === 'compress' && (
                         <div className="opt-control-group" style={{ gridColumn: '1 / -1' }}>
@@ -204,13 +285,36 @@ export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab
                 </div>
             )}
 
-            {/* Results */}
-            {isProcessing ? (
-                <div className="opt-loading">
-                    <p>Processing image...</p>
+            {/* Simulation Overlay OR Results */}
+            {isSimulating ? (
+                <div className="opt-loader-panel opt-fade-in">
+                    {filePreview && (
+                        <img src={filePreview} alt="Preview" className="opt-loader-preview" />
+                    )}
+                    <div className="opt-loader-box">
+                        <div className="opt-loader-header">
+                            <span className="opt-loader-step">{processingStep}</span>
+                            <span className="opt-loader-pct">{Math.floor(progress)}%</span>
+                        </div>
+                        <div className="opt-progress-track">
+                            <div 
+                                className="opt-progress-fill" 
+                                style={{ width: `${progress}%` }}
+                            ></div>
+                        </div>
+                        <div style={{ textAlign: "right" }}>
+                            <button onClick={handleCancel} className="opt-loader-cancel">
+                                Cancel Processing
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            ) : isProcessing && !result ? (
+                <div className="opt-loading opt-fade-in">
+                    <p>Applying changes...</p>
                 </div>
             ) : result && file && (
-                <div className="opt-results">
+                <div className="opt-results opt-fade-in">
                     
                     {/* Preview Comparison */}
                     <div className="opt-preview">
@@ -241,7 +345,6 @@ export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab
                             </div>
                         </div>
 
-                        {/* Basic SEO Helper */}
                         <div className="opt-seo-box">
                             <h4>SEO Suggestions</h4>
                             <p>Filename:</p>
@@ -257,6 +360,15 @@ export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab
                             </svg>
                             Download {activeTab === 'compress' ? 'Compressed' : activeTab === 'convert' ? 'Converted' : 'Resized'} Image
                         </button>
+                        
+                        <div style={{ textAlign: "center", marginTop: "1rem" }}>
+                            <button 
+                                onClick={handleCancel} 
+                                style={{ background: "none", border: "none", color: "var(--text-3)", cursor: "pointer", textDecoration: "underline", fontSize: "0.9rem" }}
+                            >
+                                Process Another Image
+                            </button>
+                        </div>
                     </div>
 
                 </div>
