@@ -37,7 +37,7 @@ export default function TermsPage() {
 
                 <h2>5. Content Generation</h2>
                 <p>
-                    Zehbee provides tools to modify and generate text. You retain full ownership and copyright of any original text you input. Zehbee claims no ownership over the generated outputs, and you are free to use them commercially.
+                    Zehbee provides tools to modify and optimize images. You retain full ownership and copyright of any original images you input. Zehbee claims no ownership over the generated outputs, and you are free to use them commercially.
                 </p>
             </div>
         </div>

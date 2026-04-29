@@ -22,17 +22,16 @@ export default function Footer() {
               <span>zehbee</span>
             </Link>
             <p className="footer-desc">
-              A premium toolkit for modern creators. Free forever, no sign-ups required.
+              A premium image optimization toolkit for modern creators. Free forever, 100% private.
             </p>
           </div>
           
           <div className="footer-links-grid">
             <div className="footer-column">
               <h4>Tools</h4>
-              <Link href="/ai-writing-assistant">AI Prompt Generator</Link>
-              <Link href="/rewrite-text-online">Rewrite Text Online</Link>
-              <Link href="/tone-changer-tool">Tone Changer Tool</Link>
-              <Link href="/ai-caption-generator">AI Caption Generator</Link>
+              <Link href="/compress-image-online">Compress Image Online</Link>
+              <Link href="/convert-image-to-webp">Convert Image to WebP</Link>
+              <Link href="/resize-image-online">Resize Image Online</Link>
             </div>
             <div className="footer-column">
               <h4>Resources</h4>

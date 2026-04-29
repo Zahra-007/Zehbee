@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About Zehbee — Free AI Writing Assistant",
-    description: "Learn more about Zehbee, the browser-based, privacy-first AI writing companion.",
+    title: "About Zehbee — Free Image Optimizer",
+    description: "Learn more about Zehbee, the browser-based, privacy-first image optimization companion.",
     alternates: { canonical: "https://zehbee.com/about" },
 };
 
@@ -17,12 +17,12 @@ export default function AboutPage() {
             <div className="seo-body">
                 <h2>Our Mission</h2>
                 <p>
-                    Zehbee was built with a single goal: to provide high-quality, instant writing tools without the modern web's bloat. We believe that simple tasks like rewriting a paragraph or generating a social media caption shouldn't require you to create an account, enter a credit card, or navigate through intrusive advertisements.
+                    Zehbee was built with a single goal: to provide high-quality, instant image tools without the modern web's bloat. We believe that simple tasks like compressing a photo or converting to WebP shouldn't require you to create an account, enter a credit card, or navigate through intrusive advertisements.
                 </p>
 
                 <h2>Privacy First</h2>
                 <p>
-                    Unlike major AI platforms that consume your inputs to train their models, Zehbee operates entirely in your web browser. When you use our Rewrite, Tone Changer, or Caption Generator tools, your text is processed locally on your own device using lightweight rule-based algorithms. We never see, save, or store your data.
+                    Unlike major platforms that upload your files to their servers, Zehbee operates entirely in your web browser. When you use our Compress, Convert, or Resize tools, your images are processed locally on your own device using native browser APIs. We never see, save, or store your data.
                 </p>
 
                 <h2>Fast and Free</h2>

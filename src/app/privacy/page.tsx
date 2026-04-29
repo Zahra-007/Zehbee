@@ -22,7 +22,7 @@ export default function PrivacyPage() {
 
                 <h2>2. Data Collection and Processing</h2>
                 <p>
-                    <strong>We do not collect, store, or transmit your text inputs.</strong> All of our writing tools, including the Rewrite Text, Tone Changer, and Caption Generator, operate entirely locally within your web browser using JavaScript. Your text never touches our servers.
+                    <strong>We do not collect, store, or transmit your image uploads.</strong> All of our image tools, including the Compressor, Converter, and Resizer, operate entirely locally within your web browser using HTML5 Canvas APIs. Your images never touch our servers.
                 </p>
 
                 <h2>3. Analytics and Advertising</h2>
@@ -35,7 +35,7 @@ export default function PrivacyPage() {
 
                 <h2>4. Your Rights</h2>
                 <p>
-                    Because we do not store your personal text data, there is no personal data to delete. If you have concerns regarding analytics cookies, you can disable them in your browser settings.
+                    Because we do not store your personal image data, there is no personal data to delete. If you have concerns regarding analytics cookies, you can disable them in your browser settings.
                 </p>
 
                 <h2>5. Contact Us</h2>
