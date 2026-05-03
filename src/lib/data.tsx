@@ -30,19 +30,35 @@ export const tools: Tool[] = [
         icon: null, // Icons will be mapped in ToolsGrid
     },
     {
-        title: "Convert Image to WebP",
-        description: "Convert PNG, JPG, and other formats to WebP for faster web loading.",
-        accent: "#93C5FD",
-        href: "/convert-image-to-webp",
+        title: "Image to PDF",
+        description: "Convert multiple images into a single high-quality PDF document.",
+        accent: "#C084FC",
+        href: "/tools/image-to-pdf",
         category: "Image Tools",
         icon: null,
     },
     {
-        title: "Resize Image Online",
-        description: "Change image dimensions while maintaining perfect aspect ratio.",
-        accent: "#F9A8D4",
-        href: "/resize-image-online",
-        category: "Image Tools",
+        title: "PDF to Image",
+        description: "Extract pages from a PDF document and save them as high-quality images.",
+        accent: "#F87171",
+        href: "/tools/pdf-to-image",
+        category: "PDF Tools",
+        icon: null,
+    },
+    {
+        title: "QR Code Generator",
+        description: "Generate customized QR codes instantly from text or URLs.",
+        accent: "#34D399",
+        href: "/tools/qr-generator",
+        category: "Utility Tools",
+        icon: null,
+    },
+    {
+        title: "Text Counter",
+        description: "Real-time word, character, and sentence counting utility.",
+        accent: "#60A5FA",
+        href: "/tools/text-counter",
+        category: "Utility Tools",
         icon: null,
     },
 ];
@@ -51,7 +67,17 @@ export const categories: Category[] = [
     {
         name: "Image Tools",
         color: "#C084FC",
-        tools: ["Compress Image Online", "Convert Image to WebP", "Resize Image Online"],
+        tools: ["Compress Image Online", "Image to PDF"],
+    },
+    {
+        name: "PDF Tools",
+        color: "#F87171",
+        tools: ["PDF to Image"],
+    },
+    {
+        name: "Utility Tools",
+        color: "#34D399",
+        tools: ["QR Code Generator", "Text Counter"],
     },
 ];
 
