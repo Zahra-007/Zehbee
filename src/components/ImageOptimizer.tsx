@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { processImage, ProcessOptions, ProcessResult, formatBytes, generateSeoFilename, generateAltTextSuggestion } from "@/lib/imageEngine";
+import { processImage, ProcessOptions, ProcessResult, formatBytes, generateSeoFilename } from "@/lib/imageEngine";
 
 type Tab = 'compress' | 'convert' | 'resize';
 
@@ -345,14 +345,7 @@ export default function ImageOptimizer({ defaultTab = 'compress' }: { defaultTab
                             </div>
                         </div>
 
-                        <div className="opt-seo-box">
-                            <h4>SEO Suggestions</h4>
-                            <p>Filename:</p>
-                            <code>{generateSeoFilename(file.name, result.blob.type, activeTab)}</code>
-                            
-                            <p>Alt Text:</p>
-                            <code>{generateAltTextSuggestion(file.name)}</code>
-                        </div>
+
 
                         <button onClick={handleDownload} className="opt-btn-download">
                             <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
